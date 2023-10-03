@@ -75,7 +75,24 @@
                         </li>
                     </ul>
                 </div>
-            </li>    
+            </li>   
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="@if($link=='lpemasukan'|| $link=='lpengeluaran')true @else false @endif" aria-controls="tables">
+                    <i class="typcn typcn-th-small-outline menu-icon"></i>
+                    <span class="menu-title">Laporan</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse @if($link=='lpemasukan'|| $link=='lpengeluaran')true @else false @endif" id="tables">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link @if($link=='lpemasukan') active @endif" href="{{url('laporanpemasukan')}}">Pemasukan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if($link=='lpengeluaran') active @endif" href="{{url('laporanpengeluaran')}}">Pengeluaran</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item @if($link == 'user') active @endif ">
                 <a class="nav-link" href="{{url('user')}}">
                     <i class="typcn typcn-user-outline menu-icon"></i>

@@ -8,6 +8,8 @@ use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LaporanPemasukanController;
+use App\Http\Controllers\LaporanPengeluaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,9 @@ Route::resource('user', UserController::class);
 Route::resource('halamanutama', HomeController::class);
 
 Route::resource('companies', CompanyController::class);
+
+Route::resource('laporanpemasukan', LaporanPemasukanController::class);
+Route::post('laporanpemasukan/proses', [LaporanPemasukanController::class, 'proses']);
+
+Route::resource('laporanpengeluaran', LaporanPengeluaranController::class);
+Route::post('laporanpengeluaran/proses', [LaporanPengeluaranController::class, 'proses']);
