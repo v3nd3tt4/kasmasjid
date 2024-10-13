@@ -9,18 +9,19 @@
                 backgroundColor: "lightblue",
                 borderColor: "lightblue",
                 borderWidth: 1,
-                data: [{{convertk($chart_pemasukan->pemasukan_januari)}},
-                    {{convertk($chart_pemasukan->pemasukan_februari)}},
-                    {{convertk($chart_pemasukan->pemasukan_maret)}},
-                    {{convertk($chart_pemasukan->pemasukan_april)}},
-                    {{convertk($chart_pemasukan->pemasukan_mei)}},
-                    {{convertk($chart_pemasukan->pemasukan_juni)}},
-                    {{convertk($chart_pemasukan->pemasukan_juli)}},
-                    {{convertk($chart_pemasukan->pemasukan_agustus)}},
-                    {{convertk($chart_pemasukan->pemasukan_september)}},
-                    {{convertk($chart_pemasukan->pemasukan_oktober)}},
-                    {{convertk($chart_pemasukan->pemasukan_november)}},
-                    {{convertk($chart_pemasukan->pemasukan_desember)}},
+                data: [
+                    {{!empty($chart_pemasukan->pemasukan_januari) ? convertk($chart_pemasukan->pemasukan_januari) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_februari) ? convertk($chart_pemasukan->pemasukan_februari) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_maret) ? convertk($chart_pemasukan->pemasukan_maret) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_april) ? convertk($chart_pemasukan->pemasukan_april) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_mei) ? convertk($chart_pemasukan->pemasukan_mei) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_juni) ? convertk($chart_pemasukan->pemasukan_juni) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_juli) ? convertk($chart_pemasukan->pemasukan_juli) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_agustus) ? convertk($chart_pemasukan->pemasukan_agustus) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_september) ? convertk($chart_pemasukan->pemasukan_september) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_oktober) ? convertk($chart_pemasukan->pemasukan_oktober) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_november) ? convertk($chart_pemasukan->pemasukan_november) : 0}},
+                    {{!empty($chart_pemasukan->pemasukan_desember) ? convertk($chart_pemasukan->pemasukan_desember) : 0}},
                 ]
             },
             {
@@ -28,21 +29,21 @@
                 backgroundColor: "red",
                 borderColor: "red",
                 borderWidth: 1,
-                data: [{{convertk($chart_pengeluaran->pengeluaran_januari)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_februari)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_maret)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_april)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_mei)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_juni)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_juli)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_agustus)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_september)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_oktober)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_november)}},
-                    {{convertk($chart_pengeluaran->pengeluaran_desember)}},
+                data: [
+                    {{!empty($chart_pengeluaran->pengeluaran_januari) ? convertk($chart_pengeluaran->pengeluaran_januari) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_februari) ? convertk($chart_pengeluaran->pengeluaran_februari) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_maret) ? convertk($chart_pengeluaran->pengeluaran_maret) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_april) ? convertk($chart_pengeluaran->pengeluaran_april) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_mei) ? convertk($chart_pengeluaran->pengeluaran_mei) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_juni) ? convertk($chart_pengeluaran->pengeluaran_juni) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_juli) ? convertk($chart_pengeluaran->pengeluaran_juli) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_agustus) ? convertk($chart_pengeluaran->pengeluaran_agustus) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_september) ? convertk($chart_pengeluaran->pengeluaran_september) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_oktober) ? convertk($chart_pengeluaran->pengeluaran_oktober) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_november) ? convertk($chart_pengeluaran->pengeluaran_november) : 0}},
+                    {{!empty($chart_pengeluaran->pengeluaran_desember) ? convertk($chart_pengeluaran->pengeluaran_desember) : 0}},
                 ]
             },
-
         ]
     };
 
@@ -74,9 +75,6 @@
 <script>
     var oilCanvas = document.getElementById("barChartStacked");
 
-    // Chart.defaults.global.defaultFontFamily = "Lato";
-    // Chart.defaults.global.defaultFontSize = 18;
-
     var keuangan = {
         labels: [
             "Pengeluaran",
@@ -84,11 +82,13 @@
         ],
         datasets: [
             {
-                data: [{{$sum_pengeluaran}}, {{$sum_pemasukan}}],
+                data: [
+                    {{!empty($sum_pengeluaran) ? $sum_pengeluaran : 0}}, 
+                    {{!empty($sum_pemasukan) ? $sum_pemasukan : 0}}
+                ],
                 backgroundColor: [
                     "#FF6384",
                     "#63FF84",
-                    
                 ]
             }]
     };
